@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Encode+Sans:wght@900&family=Fredoka+One&family=Titan+One&display=swap');
+
+:root {
+  /* Theme colors (changed using js) */
+  --color-dark-background: #0b0a0d;
+  --color-dark-text: #ffffff;
+
+  --color-light-background: #e6e6e6;
+  --color-light-text: #000000;
+
+  /* Active Colors (default) */
+  --active-color-background: #e6e6e6;
+  --active-color-text: #000000;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--active-color-background);
+  color: var(--active-color-text);
+  height: 100%;
+  width: 100%;
+}
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
