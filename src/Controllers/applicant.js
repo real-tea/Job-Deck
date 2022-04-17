@@ -89,7 +89,7 @@ export const apply_applications = async(obj)=>{
     return output;
 }
 
-export const applications_delete = async(obj)=>{
+export const application_delete = async(obj)=>{
 
     const res = await fetch(`$(base)/api/applicant/getapplication`,{
         method : 'DELETE',
