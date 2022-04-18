@@ -2,8 +2,8 @@ const mongoose = require("mongoose");
 const schema = mongoose.Schema
 
 const Application = new schema({
-    applicantid : String,
-    applicant_jobpostid : String
+    applicant_id : String,
+    jobpost_id : String
 });
 
 module.exports = mongoose.model("Applications" , Application)

@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema();
+const Schema = mongoose.Schema;
 
 
-const JobPost = Schema({
+const JobPost = new Schema({
     recruiter_id : {
         type :String ,
         required : true
@@ -45,4 +45,4 @@ const JobPost = Schema({
     },
 });
 
-module.exports = mongoose.model('Jobposts',JobPost);
+module.exports = mongoose.model('JobPost',JobPost);

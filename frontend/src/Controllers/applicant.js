@@ -9,7 +9,7 @@ const base = "http://localhost:8080"
 //delete ✅
 
 export const applicant_auth = async(obj)=>{
-    const res = await fetch(`$(base)/api/applicant/auth`,{
+    const res = await fetch(`${base}/api/applicant/auth`,{
         method : "POST",
         body : JSON.stringify(obj),
         headers: {
@@ -22,11 +22,11 @@ export const applicant_auth = async(obj)=>{
 
 
 export const applicant_register = async(obj)=>{
-    const res = await fetch(`$(base)/api/applicant/signup`,{
+    const res = await fetch(`${base}/api/applicant/signup`,{
         method : "POST",
         body : JSON.stringify(obj),
         headers : {
-            "Content-type" : "application/json",
+            "Content-Type" : "application/json",
         },
     });
 
@@ -35,11 +35,11 @@ export const applicant_register = async(obj)=>{
 }
 
 export const applicant_login = async(obj)=>{
-    const res = await fetch(`$(base)/api/applicant/getapplication`,{
+    const res = await fetch(`${base}/api/applicant/getapplication`,{
         method : "POST",
         body : JSON.stringify(obj),
         headers : {
-            "content-type" : "application/json"
+            "Content-Type" : "application/json"
         },
     });
 
@@ -49,11 +49,11 @@ export const applicant_login = async(obj)=>{
 
 export const applications_get = async(obj)=>{
 
-    const res = await fetch(`$(base)/api/applicant/getapplication`,{
+    const res = await fetch(`${base}/api/applicant/getapplication`,{
         method : 'POST',
         body : JSON.stringify(obj),
         headers : {
-            "Content-type": "application/json"
+            "Content-Type": "application/json"
         },
     });
 
@@ -63,11 +63,11 @@ export const applications_get = async(obj)=>{
 
 export const applications_get_by_id = async(obj)=>{
 
-    const res = await fetch(`$(base)/api/applicant/getapplicationdet`,{
+    const res = await fetch(`${base}/api/applicant/getapplicationdet`,{
         method : 'POST',
         body : JSON.stringify(obj),
         headers : {
-            "Content-type": "application/json"
+            "Content-Type": "application/json"
         },
     });
 
@@ -77,11 +77,11 @@ export const applications_get_by_id = async(obj)=>{
 
 export const apply_applications = async(obj)=>{
 
-    const res = await fetch(`$(base)/api/applicant/application`,{
+    const res = await fetch(`${base}/api/applicant/application`,{
         method : 'POST',
         body : JSON.stringify(obj),
         headers : {
-            "Content-type": "application/json"
+            "Content-Type": "application/json"
         },
     });
 
@@ -91,11 +91,11 @@ export const apply_applications = async(obj)=>{
 
 export const application_delete = async(obj)=>{
 
-    const res = await fetch(`$(base)/api/applicant/getapplication`,{
+    const res = await fetch(`${base}/api/applicant/getapplication`,{
         method : 'DELETE',
         body : JSON.stringify(obj),
         headers : {
-            "Content-type": "application/json"
+            "Content-Type": "application/json"
         },
     });
 
