@@ -4,19 +4,23 @@ const mongoose = require('mongoose');
 const jwt = require('jsonwebtoken')
 const cors = require('cors');
 
+const bodyParser = require('body-parser');
+
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-require('dotenv')
+app.use(bodyParser.urlencoded({ extended: true }))
 
-const port = 8080
+require('dotenv').config();
+
+const port = 5000
 
 const DB = process.env.DATABASE;
 
 //connection to db:
 
-mongoose.connect(DB,{useNewUrlParser : true , useUnifiedTopology : true}).then(()=>{
+mongoose.connect("mongodb+srv://Jon-deck:jaypeehacks@job-deck.dhnlj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",{useNewUrlParser : true , useUnifiedTopology : true}).then(()=>{
     console.log("Database Connected")
 }).catch((err)=>{
     console.log("Database Connected")

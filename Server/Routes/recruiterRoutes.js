@@ -38,8 +38,8 @@ router.post("/signup", async (req, res) => {
         return res.json({ "message": "recruiter already exists", "tag": false })
     }
     else {
-        var hash = bcrypt.hashSync(Password, 8);
-        Password = hash;
+        // var hash = bcrypt.hashSync(Password, 8);
+        // Password = hash;
         const recruiter = new Recruiter({
             Name,
             Email,

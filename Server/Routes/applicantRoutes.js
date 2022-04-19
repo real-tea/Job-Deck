@@ -3,7 +3,7 @@ const router = express.Router();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
-const Applicant = require('../Models/applicant');
+const Applicant = require('../Models/Applicant');
 const Application = require('../Models/Application');
 
 router.post("/auth",async(req,res)=>{
@@ -45,7 +45,7 @@ router.post("/applicantdets",async(req , res)=>{
 
 
 router.post("/signup" , async (req,res)=>{
-    let {
+    const {
         email,
         Password,
         Name,
@@ -70,8 +70,9 @@ router.post("/signup" , async (req,res)=>{
         })
         applicant.save(function(error , document){
             if(error){
+                console.log(error);
                 return res.json({
-                    "message" : error,
+                    "message" : "error",
                     "tag" : false
                 }) 
             }

@@ -1,4 +1,4 @@
-const base = "http://localhost:8080"
+const base = "http://localhost:5000"
 
 //auth ✅
 //register ✅
@@ -35,7 +35,7 @@ export const applicant_register = async(obj)=>{
 }
 
 export const applicant_login = async(obj)=>{
-    const res = await fetch(`${base}/api/applicant/getapplication`,{
+    const res = await fetch(`${base}/api/applicant/login`,{
         method : "POST",
         body : JSON.stringify(obj),
         headers : {

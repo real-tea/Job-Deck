@@ -24,7 +24,7 @@ export default function Signup() {
     // userType
 
     if (userType === "applicant") {
-      let obj = {
+      const obj = {
         applicant_email: email,
         applicant_password: password,
         applicant_name: fullname,
@@ -43,6 +43,8 @@ export default function Signup() {
     setEmail("");
     setFullname("");
     setPassword("");
+    setDescription("");
+    setExperience("");
   };
 
   return (
