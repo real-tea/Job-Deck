@@ -54,21 +54,21 @@ export default function DashboardApplicant() {
         <>
 
 
-            <div className="upperbar bg-indigo-600">
+            <div className="upperbar bg-[#085F63]">
                 <div className="nav float-right p-[3rem] text-2xl font-encode text-white">
                     <Navbar active="dashboard" />
                 </div>
                 <Link to="/">
                     <h1 className="text-6xl text-white  shadow-2xl font-medium p-8 font-titan">
                         {" "}
-                        Easy Jobs
+                        JobBuzz
                     </h1>
                 </Link>
 
 
                 {(isApplicantLoggedIn) ?
                     <div className="profile bg-white shadow-2xl rounded-xl  p-16 ml-10 mr-10 mt-20">
-                        <div className="profile-details text-left text-2xl w-[30%] rounded border-indigo-600 font-semibold border-2">
+                        <div className="profile-details text-left text-2xl w-[30%] rounded border-[#FF5959] font-semibold border-2">
                             <h1 className="m-2 p-2"> Name : {name} </h1>
                             <h1 className="m-2 p-2"> Email Address : {email} </h1>
                             <h1 className="m-2 p-2"> Description : {description} </h1>

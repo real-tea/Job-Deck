@@ -48,20 +48,20 @@ export default function Signup() {
   return (
     <>
       <div className="signup-page">
-        <div className="upperbar bg-indigo-600">
-          <div className="nav float-right p-[3rem] text-2xl  font-encode text-white">
+        <div className="upperbar bg-[#085F63]">
+          <div className="nav float-right p-[3rem] text-2xl  font-titan text-white">
             <Navbar active="signup" />
           </div>
           <Link to="/">
             <h1 className="text-6xl text-white  shadow-2xl font-medium p-8 font-titan">
               {" "}
-              Easy Jobs
+              JobBuzz
             </h1>
           </Link>
         </div>
 
         <div className="signup-form relative w-1/4 shadow-xl p-5 md:rounded-md mx-auto min-w-fitrounded-xl mt-10 bg-[#ffffff]">
-          <h1 className="ml-10 mb-5 text-[3rem] font-semibold text-indigo-600">
+          <h1 className="ml-10 mb-5 text-[3rem] font-titan text-[#49BEB7]">
             {" "}
             Signup
             <br />
@@ -154,7 +154,7 @@ export default function Signup() {
           )}
 
           <button
-            className="submit p-3 border-2 shadow-2xl w-[85%] text-xl hover:bg-[#c0c0c0] ml-10 mb-5 bg-white outline-none rounded-xl "
+            className="submit p-3 border-2 shadow-2xl w-[85%] text-xl hover:bg-[#FFE300] ml-10 mb-5 bg-white outline-none rounded-xl "
             type="submit"
             onClick={handleChange}
           >
@@ -162,11 +162,11 @@ export default function Signup() {
           </button>
 
           <div className="already flex flex-row">
-            <h3 className="ml-5 p-2 text-2xl text-indigo-600 font-medium">
+            <h3 className="ml-5 p-2 text-2xl text-[#49BEB7] font-medium">
               Already have an account?
             </h3>
             <button
-              className="submit p-2 border-2 shadow-2xl w-[30%] text-xl hover:bg-[#c0c0c0] bg-white outline-none rounded-xl "
+              className="submit p-2 border-2 shadow-2xl w-[30%] text-xl hover:bg-[#FFE300] bg-white outline-none rounded-xl "
               type="submit"
               onClick={() => {
                 navigate("/login");

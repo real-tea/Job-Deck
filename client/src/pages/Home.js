@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
       <div className="home-page no-scrollbar">
-        <div className="upperbar bg-indigo-600">
+        <div className="upperbar bg-[#085F63]">
           <div className="nav float-right p-[3rem] text-2xl font-encode text-white">
             <Navbar />
           </div>
@@ -26,7 +26,7 @@ export default function Home() {
 
         <div className="hero p-20 flex mb-48 flex-row">
           <div className="title p-5 ml-10 b">
-            <h1 className="text-indigo-600 text-4xl p-4 font-description">
+            <h1 className="text-[#49BEB7] text-4xl p-4 font-description">
               Find opportunities on 🚀
               <br />
               <br />
@@ -35,13 +35,13 @@ export default function Home() {
             <div className="mt-5">
               <Link
                 to="/login"
-                className="submit p-3 border-4 shadow-2xl text-xl hover:bg-[#c0c0c0] hover:text-indigo-800 font-medium ml-6 mb-5 bg-white outline-none rounded-xl "
+                className="submit p-3 border-4 shadow-2xl text-xl hover:bg-[#FACF5A] hover:text-[#49BEB7] font-medium ml-6 mb-5 bg-white outline-none rounded-xl "
               >
                 Login ⚡
               </Link>
               <Link
                 to="/signup"
-                className="submit p-3 border-4 shadow-2xl text-xl hover:bg-[#c0c0c0] hover:text-indigo-800 font-medium ml-6 mb-5 bg-white outline-none rounded-xl "
+                className="submit p-3 border-4 shadow-2xl text-xl hover:bg-[#FACF5A] hover:text-[#49BEB7] font-medium ml-6 mb-5 bg-white outline-none rounded-xl "
               >
                 Signup 🥇
               </Link>
@@ -50,11 +50,11 @@ export default function Home() {
           </div>
 
           <div className="image absolute right-0 ">
-            <img className="fadeupdown mr-20 rounded-3xl shadow-2xl" src={main} />
+            {/* <img className="fadeupdown w-4/5 mr-20 rounded-3xl shadow-2xl" src={main} /> */}
           </div>
         </div>
 
-        <div className="home-other p-10 flex flex-row bg-indigo-600">
+        <div className="home-other p-10 flex flex-row bg-[#FF6F86]">
           <div className="text">
             <h1 className="applicant text-[3.5rem] text-white font-semibold p-16 m-5 font-titan">
               {" "}
@@ -69,14 +69,14 @@ export default function Home() {
             <div className="mt-10 ml-[3.3rem]">
               <Link
                 to="/jobs"
-                className="font-description submit p-3 border-2 shadow-2xl text-xl text-indigo-600 hover:bg-[#c0c0c0] hover:text-indigo-800 font-medium ml-6 mb-5 bg-white outline-none rounded-xl "
+                className="font-description submit p-3 border-2 shadow-2xl text-xl text-[#49BEB7] hover:bg-[#FACF5A] hover:text-indigo-800 font-medium ml-6 mb-5 bg-white outline-none rounded-xl "
               >
                 Apply Now
               </Link>
             </div>
           </div>
           <div className="appimg">
-            <img className="float-right p-10 m-5 max-w-2xl" src={applicant} />
+            <img className="fadeupdown w-4/5 mr-20 rounded-3xl " src={applicant} />
           </div>
         </div>
 
@@ -87,11 +87,11 @@ export default function Home() {
           </div>
 
           <div className="text float-right">
-            <h1 className="recru text-[3.5rem] text-indigo-600 font-semibold p-16 m-5 font-titan">
+            <h1 className="recru text-[3.5rem] text-[#49BEB7] font-semibold p-16 m-5 font-titan">
               {" "}
               Looking to Recruit?{" "}
             </h1>
-            <p className="recru text-[1.5rem] ml-20 mr-[15%] text-justify font-medium text-indigo-600 font-description ">
+            <p className="recru text-[1.5rem] ml-20 mr-[15%] text-justify font-medium text-[#49BEB7] font-description ">
               {" "}
              Looking to hire and make your own super team? Look no more
              JobBuzz brings the sharpest and keenest minds to one place. 
@@ -100,7 +100,7 @@ export default function Home() {
             <div className="mt-10 ml-[3.3rem]">
               <Link
                 to="/postjob"
-                className="font-description submit p-3 border-2 shadow-2xl text-xl hover:bg-indigo-500 font-medium ml-6 mb-5 bg-indigo-600 text-white outline-none rounded-xl "
+                className="font-description submit p-3 border-2 shadow-2xl text-xl hover:bg-[#FACF5A] font-medium ml-6 mb-5 bg-white text-black outline-none rounded-xl "
               >
                 Recruite Now
               </Link>

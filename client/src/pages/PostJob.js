@@ -64,24 +64,24 @@ export default function PostJob() {
 
   return (
     <>
-      <div className="upperbar bg-indigo-600">
+      <div className="upperbar bg-[#085F63]">
         <div className="nav float-right p-[3rem] text-2xl font-encode text-white">
           <Navbar active="post_a_job" />
         </div>
         <Link to="/">
           <h1 className="text-6xl text-white  shadow-2xl font-medium p-8 font-titan">
             {" "}
-            Easy Jobs
+            JobBuzz
           </h1>
         </Link>
       </div>
       {isLoggedIn ? (
         <>
-          <div className="post-job-container text-left  dark:bg-[#2e2e2e] relative w-1/4 shadow-xl p-5 md:rounded-md mx-auto min-w-fitrounded-xl mt-10  bg-[#ffffff]">
+          <div className="post-job-container text-left  dark:bg-[#F7F7F7] relative w-1/4 shadow-xl p-5 md:rounded-md mx-auto min-w-fitrounded-xl mt-10  bg-[#ffffff]">
             <div className="title ">
-              <h1 className="m-10 text-3xl font-semibold text-indigo-600">
+              <h1 className="m-10 text-3xl font-titan text-[#49BEB7]">
                 {" "}
-                Job posting Form{" "}
+                Job posting {" "}
               </h1>
             </div>
             <div className="role">
@@ -235,7 +235,7 @@ export default function PostJob() {
             </div>
 
             <button
-              className="submit mb-5 p-3 border-2 shadow-2xl w-[85%] text-xl hover:bg-[#c0c0c0] ml-10 bg-white outline-none rounded-xl "
+              className="submit mb-5 p-3 border-2 shadow-2xl w-[85%] text-xl hover:bg-[#FFE300] ml-10 bg-white outline-none rounded-xl "
               type="submit"
               onClick={handleChange}
             >

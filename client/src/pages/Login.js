@@ -44,20 +44,20 @@ export default function Login() {
   return (
     <>
       <div className="signup-page">
-        <div className="upperbar bg-indigo-600">
+        <div className="upperbar bg-[#085F63]">
           <div className="nav float-right p-[3rem] text-2xl font-encode text-white">
             <Navbar />
           </div>
           <Link to="/">
             <h1 className="text-6xl text-white  shadow-2xl font-medium p-8 font-titan">
               {" "}
-              Easy Jobs
+              JobBuzz
             </h1>
           </Link>
         </div>
 
         <div className="signup-formrelative w-1/4 shadow-xl p-5 md:rounded-md mx-auto min-w-fitrounded-xl mt-10 bg-[#ffffff]">
-          <h1 className="ml-10 mb-5 text-[3rem] font-semibold text-indigo-600">
+          <h1 className="ml-10 mb-5 text-[3rem] font-titan text-[#49BEB7]">
             {" "}
             Login
             <br />

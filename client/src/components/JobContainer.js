@@ -33,10 +33,10 @@ export default function JobContainer(props) {
     <>
       {isOpen && (
         <>
-          <div className="fixed inset-0 z-50 overflow-auto bg-smoke-light flex drop-shadow-2xl backdrop-blur-[2px]">
+          <div className="fixed inset-0 z-50 overflow-auto bg-smoke-light flex drop-shadow-2xl backdrop-blur-[4px]">
             <div className="relative p-8 bg-white w-full max-w-md m-auto flex-col flex rounded-lg">
               <div className="flex items-center justify-between">
-                <div className="text-2xl font-medium">{props.company_name}</div>
+                <div className="text-2xl font-titan">{props.company_name}</div>
                 <button onClick={() => setIsOpen(false)}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -84,8 +84,8 @@ export default function JobContainer(props) {
               </div>
               <hr className="divide-y divide-solid w-[100%]" />
               <div className="text-md mb-2">
-                <div className="text-lg mb-1">Job description</div>
-                {props.job_description}
+                <div className="font-description text-lg mb-1">Job description</div>
+                <div className = "font-description">{props.job_description}</div>
                 <br />
                 Experience : {props.experience}
               </div>
@@ -136,7 +136,7 @@ export default function JobContainer(props) {
               <hr className="divide-y divide-solid w-[100%]" />
 
               <button
-                className="check m-3 bg-indigo-600 rounded-xl text-white font-medium p-3"
+                className="check m-3 bg-[#FACF5A] rounded-xl text-white font-medium p-3"
                 onClick={job_application}
               >
                 Apply Now
@@ -148,7 +148,7 @@ export default function JobContainer(props) {
       <div className="job-container flex flex-row m-10 shadow-2xl">
         <div className="role w-[50%] p-3 text-2xl font-medium ">
           {props.role}
-          <div className="company text-lg p-1 bg-indigo-600 text-white rounded w-[35%] text-center">
+          <div className="company text-lg p-1 bg-[#FACF5A] text-white rounded w-[35%] text-center">
             {props.company_name}
           </div>
         </div>
@@ -156,7 +156,7 @@ export default function JobContainer(props) {
           {props.type} - {props.mode} - {props.location}
         </div>
         <button
-          className="check m-3 w-[50%] bg-indigo-600 rounded-xl text-white font-medium p-3"
+          className="check m-3 w-[50%] bg-[#49BEB7] rounded-xl text-white font-medium p-3"
           onClick={() => setIsOpen(true)}
         >
           Check
