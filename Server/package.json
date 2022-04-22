@@ -4,10 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
-  "author": "Ujjwal",
+  "author": "Akash Singh",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
