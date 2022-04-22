@@ -1,48 +1,18 @@
-const mongoose = require("mongoose");
+const mongoose=require('mongoose');
 const Schema = mongoose.Schema;
 
-
 const JobPost = new Schema({
-    recruiter_id : {
-        type :String ,
-        required : true
-    },
-    type : {
-        type :String ,
-        required : true
-    },   
-    mode : {
-        type :String ,
-        required : true
-    },
-    location : {
-        type :String ,
-        required : true
-    },    
-    company_name : {
-        type :String ,
-        required : true
-    },
-    duration : {
-        type :String ,
-        required : true
-    },
-    role : {
-        type :String ,
-        required : true
-    },
-    pay : {
-        type :String ,
-        required : true
-    },
-    description : {
-        type :String ,
-        required : true
-    },
-    experience : {
-        type :String ,
-        required : true
-    },
+    jobpost_recruiter_id:String,
+    jobpost_type:String,
+    jobpost_mode:String,
+    jobpost_location:String,
+    jobpost_company_name:String,
+    jobpost_duration:String,
+    jobpost_role:String,
+    jobpost_pay:String,
+    jobpost_job_description:String,
+    jobpost_experience:String
 });
 
-module.exports = mongoose.model('JobPost',JobPost);
+
+module.exports = mongoose.model('JobPosts', JobPost); 

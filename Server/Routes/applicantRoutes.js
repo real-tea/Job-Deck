@@ -1,33 +1,32 @@
 const express = require("express");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
-const bcrypt = require("bcrypt");
+var bcrypt = require('bcryptjs');
 
-const Applicant = require('../Models/Applicant');
-const Application = require('../Models/Application');
+const Applicant = require("../models/Applicant");
+const Application = require("../models/Application");
+const JobPost = require("../models/JobPost");
 
-router.post("/auth",async(req,res)=>{
-    const token = req.body.token
-    try{
-        const decode = jwt.verify(token,"easy_jobs_proj");
-        const user = Applicant.findOne({_id : decode.id});
+router.post("/auth", async (req, res) => {
+    const token = req.body.token;
+    try {
+        const decoded = jwt.verify(token, "easy_jobs_proj");
+        const user = Applicant.findOne({ _id: decoded.id });
         return res.json({
-        "tag" : true,
-        "message" : "User Authenticated"
+            "tag": true,
+            "message": "Authenticated user"
         });
-        
     }
-    catch(err){
-        // console.log(err);
+    catch (error) {
+        console.log(error);
         return res.json({
-            "tag" : false,
-            "message" : err
-        })
+            "tag": false,
+            "message": "Not Atuhenticated Applicant"
+        });
     }
 })
 
-
-router.post("/applicantdets",async(req , res)=>{
+router.post("/applicantdets", async (req, res) => {
     const id = req.body.id;
     let applicant = {};
     applicant = await Applicant.findOne({ _id: id });
@@ -43,55 +42,48 @@ router.post("/applicantdets",async(req , res)=>{
     })
 })
 
+router.post("/signup", async (req, res) => {
 
-router.post("/signup" , async (req,res)=>{
-    const {
-        email,
-        Password,
-        Name,
-        Experience,
-        description
-    } = req.body;
+    let { applicant_email,
+        applicant_password,
+        applicant_name, applicant_experience,
+        applicant_description } = req.body;
 
-    const result = await Applicant.findOne({ email });
-    if(result){
-        return req.json({ "message" : "Applicant already exists", "tag" : false})
+    const result = await Applicant.findOne({ applicant_email });
+
+    if (result) {
+        return res.json({ "message": "Applicant already exists", "tag": false })
     }
-
-    else{
-        var hash = bcrypt.hashSync(Password , 8);
-        Password = hash;
+    else {
+        var hash = bcrypt.hashSync(applicant_password, 8);
+        applicant_password = hash;
         const applicant = new Applicant({
-            email,
-            Password,
-            Name,
-            Experience,
-            description
+            applicant_email,
+            applicant_password,
+            applicant_name,
+            applicant_experience,
+            applicant_description
         })
-        applicant.save(function(error , document){
-            if(error){
-                console.log(error);
-                return res.json({
-                    "message" : "error",
-                    "tag" : false
-                }) 
+        applicant.save(function (error, document) {
+            if (error) {
+                console.error(error)
+                return res.json({ "message": "try again", "tag": false })
             }
-                return res.json({"message" : "Applicant Signed Up",
-                                 "tag" : true})
-            
-
+            //console.log(document);
+            return res.json({ "message": "Applicant SignUp Success", tag: true })
         })
     }
+
 })
 
 router.post("/login", async (req, res) => {
 
     const obj = req.body;
-    const result = await Applicant.findOne({ email: obj.email });
+    const result = await Applicant.findOne({ applicant_email: obj.applicant_email });
     if (result) {
-        bcrypt.compare(req.body.Password, result.Password, function (err, hashed) {
+        bcrypt.compare(req.body.applicant_password, result.applicant_password, function (err, hashed) {
             if (hashed === true) {
-                const token = jwt.sign({ _id: result._id }, 'easy_jobs_proj');
+                const token = jwt.sign({ id: result._id }, 'easy_jobs_proj');
                 return res.json({ "message": "Login success", "token": token, "tag": true })
             }
             else {
@@ -105,21 +97,18 @@ router.post("/login", async (req, res) => {
 
 })
 
-
-
-
 router.post("/getapplication", async (req, res) => {
 
     const objId = req.body.id;
 
-    let applications = await Application.find({ applicant_id: objId });
+    let applications = await Application.find({ application_applicant_id: objId });
     if (applications.length > 0) {
 
         let obj = [];
         let len = applications.length;
 
         for (let i = 0; i < len; i++) {
-            let temp = await JobPost.findOne({ _id: applications[i].jobpost_id });
+            let temp = await JobPost.findOne({ _id: applications[i].application_jobpost_id });
             obj.push(temp);
         }
 
@@ -129,14 +118,13 @@ router.post("/getapplication", async (req, res) => {
 
 })
 
-
 router.post("/jobpost/applications", async (req, res) => {
 
-    let applications = await Application.find({ jobpost_id: req.body.jobpost_id });
+    let applications = await Application.find({ application_jobpost_id: req.body.application_jobpost_id });
     let arr = [];
     let len = applications.length;
     for (let i = 0; i < len; i++) {
-        let temp = await Applicant.find({ _id: applications[i].applicant_id });
+        let temp = await Applicant.find({ _id: applications[i].application_applicant_id });
         arr.push(temp);
     }
     if (arr.length > 0) {
@@ -151,14 +139,13 @@ router.post("/jobpost/applications", async (req, res) => {
     })
 })
 
-
 router.post("/application", async (req, res) => {
-    const { applicant_id,
-        jobpost_id } = req.body;
+    const { application_applicant_id,
+        application_jobpost_id } = req.body;
 
     const application = new Application({
-        applicant_id,
-        jobpost_id
+        application_applicant_id,
+        application_jobpost_id
     })
     application.save(function (error, document) {
         if (error) {
@@ -174,8 +161,8 @@ router.post("/application", async (req, res) => {
 router.delete("/application", async (req, res) => {    
     const {jobpost_id,
         applicant_id}=req.body;
-    Application.deleteOne({ applicant_id:applicant_id,
-        jobpost_id:jobpost_id}, function (err) {
+    Application.deleteOne({ application_applicant_id:applicant_id,
+        application_jobpost_id:jobpost_id}, function (err) {
         if (err) {
             
             return res.json({ "message": "Some error occured try again", "tag": false })

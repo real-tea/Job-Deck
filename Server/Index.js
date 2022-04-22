@@ -1,39 +1,36 @@
-const express = require('express')
-
-const mongoose = require('mongoose');
-const jwt = require('jsonwebtoken')
-const cors = require('cors');
-
-const bodyParser = require('body-parser');
-
+const express = require("express");
 const app = express();
+const port = process.env.PORT || 5000;
+const mongoose = require("mongoose");
+const cors = require("cors");
+const jwt = require("jsonwebtoken");
+
+// API ROUTES
+const applicantRoutes = require("./routes/applicantRoutes")
+const recruiterRoutes = require("./routes/recruiterRoutes")
+
+// DOTENV CONFIG
+require('dotenv').config();
+
+// ESSENTIAL MIDDLEWARES
 app.use(cors());
 app.use(express.json());
 
-app.use(bodyParser.urlencoded({ extended: true }))
-
-require('dotenv').config();
-
-const port = 5000
-
+// DATABASE CONNECTION
 const DB = process.env.DATABASE;
-
-//connection to db:
-
-mongoose.connect("mongodb+srv://Jon-deck:jaypeehacks@job-deck.dhnlj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",{useNewUrlParser : true , useUnifiedTopology : true}).then(()=>{
-    console.log("Database Connected")
-}).catch((err)=>{
-    console.log("Database Connected")
+mongoose.connect("mongodb+srv://Jon-deck:jaypeehacks@job-deck.dhnlj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
+    console.log("Database connected.");
+}).catch((err) => {
+    console.log("Database error");
     console.log(err);
-})
-
-const applicantRoutes = require("./Routes/applicantRoutes");
-const recruiterRoutes = require("./Routes/recruiterRoutes");
+});
 
 
-app.use("/api/applicant",applicantRoutes);
-app.use("/api/recruiter",recruiterRoutes);
+// APIS
+app.use("/api/applicant", applicantRoutes);
+app.use("/api/recruiter", recruiterRoutes);
 
-app.listen(8080, ()=>{
-    console.log("Server running");
+
+app.listen(port, () => {
+    console.log("The server is up and running at port 5000");
 })

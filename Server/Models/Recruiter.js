@@ -1,19 +1,11 @@
-const mongoose = require("mongoose");
-const schema = mongoose.Schema;
+const mongoose=require('mongoose');
+const Schema = mongoose.Schema;
 
-const Recruiter = new schema({
-    Name : {
-        type : String,
-        required : true
-    },
-    Email : {
-        type : String,
-        required : true
-    },
-    Password : {
-        type : String,
-        required : true
-    },
-})
+const Recruiter = new Schema({
+    recruiter_email:String,
+    recruiter_password:String,
+    recruiter_name:String
+});
 
-module.exports = mongoose.model("Recruiters" , Recruiter);
+
+module.exports = mongoose.model('Recruiters', Recruiter); 
