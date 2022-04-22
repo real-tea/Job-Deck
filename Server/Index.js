@@ -30,7 +30,8 @@ mongoose.connect("mongodb+srv://Jon-deck:jaypeehacks@job-deck.dhnlj.mongodb.net/
 app.use("/api/applicant", applicantRoutes);
 app.use("/api/recruiter", recruiterRoutes);
 
+const port = process.env.PORT || 5000
 
-app.listen(process.env.PORT || 5000, () => {
+app.listen(port, () => {
     console.log("The server is up and running at port 5000");
 })
