@@ -29,10 +29,8 @@ mongoose.connect("mongodb+srv://Jon-deck:jaypeehacks@job-deck.dhnlj.mongodb.net/
 app.use("/api/applicant", applicantRoutes);
 app.use("/api/recruiter", recruiterRoutes);
 
-const port = process.env.PORT || 5000
-console.log(port);
 
 
-app.listen(port ,'0.0.0.0', function(){
-    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+app.listen(process.env.PORT || 5000, '0.0.0.0', () => {
+    console.log("Server is running.");
   });
