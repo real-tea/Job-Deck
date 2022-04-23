@@ -1,4 +1,4 @@
-const base = "http://localhost:5000";
+const base = "https://jobbuzz-be.herokuapp.com/";
 
 export const auth_recruiter = async (obj) => {
   const res = await fetch(`${base}/api/recruiter/auth`, {
