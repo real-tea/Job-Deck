@@ -29,8 +29,10 @@ mongoose.connect("mongodb+srv://Jon-deck:jaypeehacks@job-deck.dhnlj.mongodb.net/
 app.use("/api/applicant", applicantRoutes);
 app.use("/api/recruiter", recruiterRoutes);
 
+const HOST = process.env.HOST || '0.0.0.0';
+const PORT = process.env.PORT || 5000;
 
 
-app.listen(process.env.PORT || 5000, '0.0.0.0', () => {
+app.listen(PORT,HOST, () => {
     console.log("Server is running.");
-  });
+});

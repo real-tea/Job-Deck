@@ -4,12 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
-  },
-  "engines": {
-    "node": "^16.14.0",
-    "npm": "^8.3.1"
+    "start": "node index.js -p $PORT",
+    "dev": "nodemon index.js -p $PORT"
   },
   "author": "Akash Singh",
   "license": "ISC",
