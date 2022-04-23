@@ -31,6 +31,8 @@ app.use("/api/recruiter", recruiterRoutes);
 
 const port = process.env.PORT || 5000
 console.log(port);
-app.listen(process.env.PORT || 5000, function(){
+
+
+app.listen(port ,'0.0.0.0', function(){
     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
   });
