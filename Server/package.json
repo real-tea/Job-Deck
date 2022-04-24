@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js -p $PORT",
-    "dev": "nodemon index.js"
+    "start": "nodemon index.js -p $PORT",    
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "author": "Akash Singh",
   "license": "ISC",
