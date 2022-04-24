@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js -p $PORT",
-    "dev": "nodemon index.js -p $PORT"
+    "dev": "nodemon index.js"
   },
   "author": "Akash Singh",
   "license": "ISC",
